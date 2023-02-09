@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Audio } from 'expo-av';
 
 export default function PodCardView({name, refe}) {
+    const [play, setplay] = useState()
     const [sound, setSound] = useState(null);
 
     useEffect(() => {
@@ -48,7 +49,6 @@ export default function PodCardView({name, refe}) {
         }
     }
     
-    const [play, setplay] = useState()
     return(
         <View>
             <Text>{name}</Text>

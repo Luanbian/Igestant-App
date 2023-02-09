@@ -1,19 +1,14 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList } from 'react-native';
 import card from '../../../public/assets/card.pod';
-
-const Item = ({name}) => (
-  <View>
-    <Text>{name}</Text>
-  </View>
-)
+import PodCardView from './podcast.cardView';
 
 export default function PodCard () {
   return (
     <View>
       <FlatList
         data={card}
-        renderItem={({item}) => <Item name={item.name} />}
+        renderItem={({item}) => <PodCardView name={item.name} refe={item.refe} />}
         keyExtractor={item => item.id}
       />
     </View>

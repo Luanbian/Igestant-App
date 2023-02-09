@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Text, Touchable, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function PodCardView({name, refe}) {

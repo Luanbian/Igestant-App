@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 const MyHeader = () => (
   <View style={styles.headerContainer}>
-    <Text style={styles.headerText}>My Header</Text>
+    <Text style={styles.headerText}>Igestant</Text>
   </View>
 );
 

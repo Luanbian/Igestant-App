@@ -12,6 +12,8 @@ export default function Card() {
           <CardView 
             name={item.name} 
             description={item.description}
+            resposta={item.resposta}
+            refe={item.refe}
           />
         }
         keyExtractor={item => item.id}

@@ -1,71 +1,37 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Audio } from "expo-av";
+import card from '../../../public/assets/card.pod';
 
-export default function PodCardView({ name, refe }) {
+export default function PodCardView() {
   const [play, setplay] = useState();
-  const [sound, setSound] = useState(null);
+  const [sound, setSound] = useState(card);
 
-  useEffect(() => {
-    (async () => {
-      const soundObject = new Audio.Sound();
-      try {
-        await soundObject.loadAsync(require("../../../public/sound/Yamete.mp3"));
-        setSound(soundObject);
-      } catch (error) {
+  const playSound = async (audio) => {
+    try {
+        const soundObject = new Audio.Sound();
+        await soundObject.loadAsync(require(`../../../public/sound/beats.mp3`));
+        await soundObject.playAsync();
+    } catch (error) {
         console.log(error);
-      }
-    })();
-  }, []);
-
-  const playSound = async () => {
-    try {
-      await sound.playAsync();
-      setplay(true);
-    } catch (error) {
-      console.log(error);
     }
-  };
-
-  const pause = async () => {
-    try {
-      await sound.pauseAsync();
-      setplay(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const replay = async () => {
-    try {
-      await sound.stopAsync();
-      await sound.unloadAsync();
-      const newSound = new Audio.Sound();
-      await newSound.loadAsync(require("../../../public/sound/Yamete.mp3"));
-      setSound(newSound);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+};
 
   return (
     <View>
-      <Text>{name}</Text>
-      <Text>{refe}</Text>
-      {!play && (
-        <TouchableOpacity onPress={playSound}>
-          <Ionicons name="play" size={20} />
-        </TouchableOpacity>
-      )}
-      {play && (
-        <TouchableOpacity onPress={pause}>
-          <Ionicons name="pause" size={20} />
-        </TouchableOpacity>
-      )}
-      <TouchableOpacity onPress={replay}>
-        <Ionicons name="sync" size={20} />
-      </TouchableOpacity>
+      {card.map(sound => (
+        <>
+          <Text>{sound.name}</Text>
+          <Text>{sound.refe}</Text>
+          <TouchableOpacity 
+            key={sound.id}
+            onPress={() => playSound(sound.audio)}
+          >
+            <Ionicons name="play" size={20}/>
+          </TouchableOpacity>
+        </>
+      ))}
     </View>
   );
 }

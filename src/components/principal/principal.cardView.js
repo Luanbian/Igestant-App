@@ -1,7 +1,7 @@
 import { Text, View, Button } from "react-native";
 import { useState } from "react";
 
-export default function CardView({ name, description, resposta, refe }) {
+export default function PrincipalCardView({ name, description, resposta, refe }) {
   const [show, setShow] = useState();
 
   const press = () => {

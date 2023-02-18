@@ -1,4 +1,4 @@
-const cards = [
+const datasPrincipal = [
     {
       name: "Muda algo em relação as vacinas em crianças prematuras?",
       description: "Sim, no caso do bebê ter menos do que 2kg algumas vacinas devem ser adiadas.",
@@ -100,4 +100,4 @@ const cards = [
       id: "10",
     },
   ];
-  export default cards;
+  export default datasPrincipal;

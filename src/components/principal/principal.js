@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
-import cards from './card.info';
-import CardView from './cardView';
+import datasPrincipal from './info.principal';
+import PrincipalCardView from './principal.cardView';
 
-export default function Card() {
+export default function PrincipalCard() {
   return (
     <View>
       <FlatList
-        data={cards}
+        data={datasPrincipal}
         renderItem={({item}) => 
-          <CardView 
+          <PrincipalCardView 
             name={item.name} 
             description={item.description}
             resposta={item.resposta}

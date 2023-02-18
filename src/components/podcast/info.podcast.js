@@ -1,4 +1,4 @@
-const card = [
+const datasPodcast = [
     {
       name: "Meu filho recusa comida",
   //    image: require("./img/recusacomida.jpg"),
@@ -71,5 +71,5 @@ const card = [
     },
   ];
     
-  export default card;
+  export default datasPodcast;
     

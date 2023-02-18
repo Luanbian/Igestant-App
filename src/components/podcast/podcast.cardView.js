@@ -24,8 +24,18 @@ export default function PodCardView() {
     try {
       if (sound) {
         await sound.pauseAsync()
+        setplay(false)
       }
-      setplay(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const replaySound = async () => {
+    try {
+      if (sound) {
+        await sound.replayAsync()
+      }
     } catch (error) {
       console.log(error)
     }
@@ -46,6 +56,11 @@ export default function PodCardView() {
             onPress={() => pauseSound()}
           >
             <Ionicons name="pause" size={20}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => replaySound()}
+          >
+            <Ionicons name="sync" size={20}/>
           </TouchableOpacity>
         </View>
       ))}

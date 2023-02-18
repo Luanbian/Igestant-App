@@ -20,17 +20,16 @@ export default function PodCardView() {
 
   return (
     <View>
-      {card.map(sound => (
-        <>
+      {card.map((sound) => (
+        <View key={sound.id}>
           <Text>{sound.name}</Text>
           <Text>{sound.refe}</Text>
-          <TouchableOpacity 
-            key={sound.id}
+          <TouchableOpacity
             onPress={() => playSound(sound.audio)}
           >
             <Ionicons name="play" size={20}/>
           </TouchableOpacity>
-        </>
+        </View>
       ))}
     </View>
   );

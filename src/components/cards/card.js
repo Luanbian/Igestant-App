@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
-import cards from '../../../public/assets/card.info';
+import { View, FlatList } from 'react-native';
+import cards from './card.info';
 import CardView from './cardView';
 
 export default function Card() {

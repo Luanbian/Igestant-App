@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Audio } from "expo-av";
-import card from '../../../public/assets/card.pod';
+import card from './card.pod';
 
 export default function PodCardView() {
   const [play, setplay] = useState();
@@ -11,7 +11,7 @@ export default function PodCardView() {
   const playSound = async (audio) => {
     try {
         const soundObject = new Audio.Sound();
-        await soundObject.loadAsync(require(`../../../public/sound/beats.mp3`));
+        await soundObject.loadAsync(audio);
         await soundObject.playAsync();
     } catch (error) {
         console.log(error);

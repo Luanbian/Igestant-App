@@ -1,10 +1,10 @@
 import { View } from 'react-native';
-import PodCardView from '../../components/podcast/podcast.cardView';
+import PodcastCard from '../../components/podcast/podcast';
 
 export default function Podcast() {
   return (
     <View>
-      <PodCardView/>
+      <PodcastCard/>
     </View>
   );
 }

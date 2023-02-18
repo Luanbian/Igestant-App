@@ -32,7 +32,7 @@ export default function PodCardView({ name, refe, audio }) {
 
   const replaySound = async () => {
     try {
-      if (sound) {
+      if (play) {
         await sound.replayAsync();
       }
     } catch (error) {

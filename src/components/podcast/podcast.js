@@ -29,7 +29,12 @@ export default function PodcastCard() {
       <FlatList
         data={ filteredData || datasPodcast}
         renderItem={({ item }) => (
-          <PodCardView name={item.name} refe={item.refe} audio={item.audio} />
+          <PodCardView 
+            name={item.name} 
+            refe={item.refe} 
+            audio={item.audio}
+            image={item.image}
+          />
         )}
         keyExtractor={(item) => item.id}
       />

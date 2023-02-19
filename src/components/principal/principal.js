@@ -33,6 +33,7 @@ export default function PrincipalCard() {
           <PrincipalCardView
             name={item.name}
             description={item.description}
+            image={item.image}
             resposta={item.resposta}
             refe={item.refe}
           />

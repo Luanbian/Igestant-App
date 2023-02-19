@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Audio } from "expo-av";
 
-export default function PodCardView({ name, refe, audio }) {
+export default function PodCardView({ name, refe, audio, image }) {
   const [play, setplay] = useState();
   const [sound, setSound] = useState(null);
 
@@ -44,6 +44,7 @@ export default function PodCardView({ name, refe, audio }) {
     <View>
       <Text>{name}</Text>
       <Text>{refe}</Text>
+      <Image source={image} style={{width: 108, height: 105}}/>
       {!play && (
         <TouchableOpacity onPress={() => playSound(audio)}>
           <Ionicons name="play" size={20} />

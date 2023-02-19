@@ -1,10 +1,10 @@
-import { Text, View } from 'react-native';
-import Card from '../../components/cards/card';
+import { View } from 'react-native';
+import PrincipalCard from '../../components/principal/principal';
 
 export default function Principal() {
   return (
     <View>
-      <Card/>
+      <PrincipalCard/>
     </View>
   );
 }

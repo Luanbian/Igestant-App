@@ -3,6 +3,7 @@ import { View, FlatList, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import datasPrincipal from "./info.principal";
 import PrincipalCardView from "./principal.cardView";
+import { style } from "../../style/principal/principal.style";
 
 export default function PrincipalCard() {
   const [filteredData, setFilteredData] = useState(datasPrincipal);
@@ -25,8 +26,10 @@ export default function PrincipalCard() {
 
   return (
     <View>
-      <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} />
-      <Ionicons name="search" />
+      <View style={style.posiSearch}>
+        <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
+        <Ionicons name="search" style={style.searchIcon}/>
+      </View>
       <FlatList
         data={ filteredData || datasPrincipal}
         renderItem={({ item }) => (

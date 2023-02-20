@@ -56,5 +56,22 @@ export const style = StyleSheet.create({
     marginBottom: '2%',
     marginLeft: '2%',
     marginEnd: '3%'
+  },
+  search: {
+    backgroundColor: '#B6DBF2',
+    borderRadius: 20,
+    paddingLeft: 25,
+    marginLeft: 10,
+    marginBottom: 10,
+    width: '85%'
+  },
+  searchIcon: {
+    marginLeft: 10,
+    fontSize: 16,
+    marginTop: 4
+  },
+  posiSearch: {
+    flexDirection: 'row-reverse',
+    alignSelf: 'flex-start' 
   }
 });

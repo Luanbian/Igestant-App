@@ -30,7 +30,7 @@ export default function PrincipalCardView({ name, description, resposta, refe, i
         </View>
       )}
       {show && (
-        <>
+        <View style={style.card}>
           <Text style={style.title}>{name}</Text>
           <View style={style.posiResRefe}>
             <Text style={style.resposta}>{resposta}</Text>
@@ -41,7 +41,7 @@ export default function PrincipalCardView({ name, description, resposta, refe, i
               <Text style={style.label}>Voltar</Text>
             </TouchableOpacity>
           </View>
-        </>
+        </View>
       )}
     </>
   );

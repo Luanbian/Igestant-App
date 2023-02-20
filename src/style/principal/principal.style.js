@@ -2,7 +2,11 @@ import { StyleSheet } from "react-native";
 
 export const style = StyleSheet.create({
   card: {
-    marginBottom: '8%'
+    marginBottom: '2%',
+    padding: 5,
+    borderColor: '#d3d3d3',
+    borderWidth: 2,
+    borderRadius: 20
   },
   title: {
     fontFamily: 'PoppinsMedium',

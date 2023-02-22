@@ -6,6 +6,7 @@ import { useFonts } from "expo-font";
 import Podcast from "./screens/podcast/podcast.index";
 import Principal from "./screens/principal/principal.index";
 import Rede from "./screens/rede/rede.index";
+import MusicPlayer from "./components/podcast/teste";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -42,7 +43,7 @@ export default function Routes() {
         })}
         tabBarPosition="bottom"
       >
-        <Tab.Screen name="Rede" component={Rede} />
+        <Tab.Screen name="Rede" component={MusicPlayer} />
         <Tab.Screen name="Principal" component={Principal} />
         <Tab.Screen name="Podcast" component={Podcast} />
       </Tab.Navigator>

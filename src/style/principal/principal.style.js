@@ -17,7 +17,7 @@ export const style = StyleSheet.create({
     fontFamily: 'PoppinsRegular',
     fontSize: 16,
     width: "67%",
-    marginTop: '3%'
+    alignSelf: 'center'
   },
   image: {
     width: 108,

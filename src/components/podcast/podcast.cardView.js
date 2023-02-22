@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Text, TouchableOpacity, View, Image } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Audio } from "expo-av";
+import { style } from '../../style/podcast/podcast.style';
 
 export default function PodCardView({ name, refe, audio, image }) {
   const [play, setplay] = useState();
@@ -41,23 +42,29 @@ export default function PodCardView({ name, refe, audio, image }) {
   };
 
   return (
-    <View>
-      <Text>{name}</Text>
-      <Text>{refe}</Text>
-      <Image source={image} style={{width: 108, height: 105}}/>
-      {!play && (
-        <TouchableOpacity onPress={() => playSound(audio)}>
-          <Ionicons name="play" size={20} />
-        </TouchableOpacity>
-      )}
-      {play && (
-        <TouchableOpacity onPress={() => pauseSound()}>
-          <Ionicons name="pause" size={20} />
-        </TouchableOpacity>
-      )}
-      <TouchableOpacity onPress={() => replaySound()}>
-        <Ionicons name="sync" size={20} />
-      </TouchableOpacity>
+    <View style={style.card}>
+      <Text style={style.title}>{name}</Text>
+      <Text style={style.refe}>{refe}</Text>
+      <View style={style.posiImgBtn}>
+        <View style={style.posiButtons}>
+          {!play && (
+            <TouchableOpacity onPress={() => playSound(audio)}>
+              <Ionicons name="play" size={25} />
+            </TouchableOpacity>
+          )}
+          {play && (
+            <TouchableOpacity onPress={() => pauseSound()}>
+              <Ionicons name="pause" size={25} />
+            </TouchableOpacity>
+          )}
+          <TouchableOpacity onPress={() => replaySound()} style={style.replay}>
+            <Ionicons name="sync" size={25} />
+          </TouchableOpacity>
+        </View>
+        <View style={style.posiImg}>
+          <Image source={image} style={style.image}/>
+        </View>
+      </View>
     </View>
   );
 }

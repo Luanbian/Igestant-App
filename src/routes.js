@@ -33,8 +33,12 @@ export default function Routes() {
             } else {
               iconName = "person";
             }
-            return <Ionicons name={iconName} size={25} color={color} />;
+            return <Ionicons name={iconName} size={25} color={color} />
           },
+          tabBarStyle: { backgroundColor: '#82B8E7', height: 50},
+          tabBarActiveTintColor: 'rgba(20, 15, 15, 0.83)',
+          tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.74)',
+          tabBarShowLabel: false,
         })}
         tabBarPosition="bottom"
       >

@@ -3,6 +3,7 @@ import { View, FlatList, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import datasPodcast from "./info.podcast";
 import PodCardView from "./podcast.cardView";
+import {style} from '../../style/podcast/podcast.style';
 
 export default function PodcastCard() {
   const [filteredData, setFilteredData] = useState(datasPodcast);
@@ -24,8 +25,10 @@ export default function PodcastCard() {
   }
   return (
     <View>
-      <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} />
-      <Ionicons name="search" />
+      <View style={style.posiSearch}>
+        <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
+        <Ionicons name="search" style={style.searchIcon}/>
+      </View>
       <FlatList
         data={ filteredData || datasPodcast}
         renderItem={({ item }) => (

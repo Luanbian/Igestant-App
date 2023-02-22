@@ -57,6 +57,9 @@ export const style = StyleSheet.create({
     marginLeft: '2%',
     marginEnd: '3%'
   },
+  posiList: {
+    marginBottom: '18%'
+  },
   search: {
     backgroundColor: '#B6DBF2',
     borderRadius: 20,

@@ -25,24 +25,26 @@ export default function PrincipalCard() {
   }
 
   return (
-    <View>
+    <>
       <View style={style.posiSearch}>
         <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
         <Ionicons name="search" style={style.searchIcon}/>
       </View>
-      <FlatList
-        data={ filteredData || datasPrincipal}
-        renderItem={({ item }) => (
-          <PrincipalCardView
-            name={item.name}
-            description={item.description}
-            image={item.image}
-            resposta={item.resposta}
-            refe={item.refe}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+      <View style={style.posiList}>
+        <FlatList
+          data={ filteredData || datasPrincipal}
+          renderItem={({ item }) => (
+            <PrincipalCardView
+              name={item.name}
+              description={item.description}
+              image={item.image}
+              resposta={item.resposta}
+              refe={item.refe}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </>
   );
 }

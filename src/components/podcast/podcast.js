@@ -24,23 +24,25 @@ export default function PodcastCard() {
     }
   }
   return (
-    <View>
+    <>
       <View style={style.posiSearch}>
         <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
         <Ionicons name="search" style={style.searchIcon}/>
       </View>
-      <FlatList
-        data={ filteredData || datasPodcast}
-        renderItem={({ item }) => (
-          <PodCardView 
-            name={item.name} 
-            refe={item.refe} 
-            audio={item.audio}
-            image={item.image}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
+      <View style={style.posiList}>
+        <FlatList
+          data={ filteredData || datasPodcast}
+          renderItem={({ item }) => (
+            <PodCardView 
+              name={item.name} 
+              refe={item.refe} 
+              audio={item.audio}
+              image={item.image}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </>
   );
 }

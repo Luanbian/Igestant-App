@@ -39,6 +39,9 @@ export const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  posiList: {
+    marginBottom: '18%'
+  },
   search: {
     backgroundColor: "#B6DBF2",
     borderRadius: 20,

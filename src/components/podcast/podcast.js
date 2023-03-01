@@ -1,41 +1,44 @@
-import React, {useState} from "react";
+import React, { useMemo, useState } from "react";
 import { View, FlatList, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import datasPodcast from "./info.podcast";
 import PodCardView from "./podcast.cardView";
-import {style} from '../../style/podcast/podcast.style';
+import { style } from "../../style/podcast/podcast.style";
 
 export default function PodcastCard() {
-  const [filteredData, setFilteredData] = useState(datasPodcast);
   const [search, setSearch] = useState("");
 
-  function searchFilter(text) {
-    if (text) {
+  const data = useMemo(() => {
+    if (search) {
       const newData = datasPodcast.filter((item) => {
         const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
-        const textData = text.toUpperCase();
+        const textData = search.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
-      setFilteredData(newData);
-      setSearch(text);
+      return newData
     } else {
-      setFilteredData(datasPodcast);
-      setSearch(text);
+      return datasPodcast
     }
-  }
+  }, [search]);
+
   return (
     <>
       <View style={style.posiSearch}>
-        <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
-        <Ionicons name="search" style={style.searchIcon}/>
+        <TextInput
+          placeholder="pesquise"
+          value={search}
+          onChangeText={(text) => setSearch(text)}
+          style={style.search}
+        />
+        <Ionicons name="search" style={style.searchIcon} />
       </View>
       <View style={style.posiList}>
         <FlatList
-          data={ filteredData || datasPodcast}
+          data={data}
           renderItem={({ item }) => (
-            <PodCardView 
-              name={item.name} 
-              refe={item.refe} 
+            <PodCardView
+              name={item.name}
+              refe={item.refe}
               audio={item.audio}
               image={item.image}
             />

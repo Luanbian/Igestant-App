@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useMemo, useState } from "react";
 import { View, FlatList, TextInput } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import datasPrincipal from "./info.principal";
@@ -6,33 +6,35 @@ import PrincipalCardView from "./principal.cardView";
 import { style } from "../../style/principal/principal.style";
 
 export default function PrincipalCard() {
-  const [filteredData, setFilteredData] = useState(datasPrincipal);
   const [search, setSearch] = useState("");
 
-  function searchFilter(text) {
-    if (text) {
-      const newData = datasPrincipal.filter((item) => {
+  const data = useMemo(() => {
+    if (search) {
+      const newData = datasPodcast.filter((item) => {
         const itemData = item.name ? item.name.toUpperCase() : "".toUpperCase();
-        const textData = text.toUpperCase();
+        const textData = search.toUpperCase();
         return itemData.indexOf(textData) > -1;
       });
-      setFilteredData(newData);
-      setSearch(text);
+      return newData;
     } else {
-      setFilteredData(datasPrincipal);
-      setSearch(text);
+      return datasPrincipal
     }
-  }
+  }, [search]);
 
   return (
     <>
       <View style={style.posiSearch}>
-        <TextInput placeholder="pesquise" value={search} onChangeText={(text) => searchFilter(text)} style={style.search}/>
-        <Ionicons name="search" style={style.searchIcon}/>
+        <TextInput
+          placeholder="pesquise"
+          value={search}
+          onChangeText={(text) => setSearch(text)}
+          style={style.search}
+        />
+        <Ionicons name="search" style={style.searchIcon} />
       </View>
       <View style={style.posiList}>
         <FlatList
-          data={ filteredData || datasPrincipal}
+          data={data}
           renderItem={({ item }) => (
             <PrincipalCardView
               name={item.name}
